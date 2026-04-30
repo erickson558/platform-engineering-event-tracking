@@ -1,0 +1,17 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+
+dist/
+build/
+*.zip

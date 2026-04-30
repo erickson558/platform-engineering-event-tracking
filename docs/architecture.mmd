@@ -1,0 +1,8 @@
+flowchart LR
+    Client[Web and Mobile Clients] -->|POST /events with x-api-key| APIGW[API Gateway HTTP API]
+    APIGW --> Lambda[Ingestion Lambda]
+    Lambda -->|PutRecordBatch| Firehose[Kinesis Data Firehose]
+    Firehose -->|GZIP JSON| S3[(S3 Raw Events Bucket)]
+    S3 --> Glue[Glue Catalog Table]
+    Glue --> Athena[Athena Workgroup]
+    Athena --> DataTeams[Data Engineering and Data Science]
